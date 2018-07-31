@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pmo.tsis.mapper.UserMapper">
+	<select id="login" resultType="com.pmo.tsis.domain.UserVO">
+		select
+		*
+		from
+		member
+		where member_id = #{member_id} and password = #{password}
+	</select>
+	<insert id="memberInsert">
+		INSERT INTO member( member_id,
+		password,
+		name,
+		department,
+		rank,
+		position,
+		auth_code,
+		phone) VALUES (#{사용자ID}, #{비밀번호},
+		#{이름},#{부서},#{직급},#{직책},#{권한구분코드},#{연락처});
+	</insert>
+</mapper>
